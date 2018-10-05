@@ -1,0 +1,51 @@
+body {
+  background-color: rgb(40, 45, 75);
+}
+
+.text {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
+  margin-bottom: 0;
+}
+
+div p {
+  font-family: "Nanum Gothic", sans-serif;
+  color: white;
+  text-align: center;
+  line-height: 1.8em;
+  font-size: 25pt;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@font-face {
+  font-family: "Nanum Gothic", sans-serif;
+  src: url("https://fonts.googleapis.com/css?family=Nanum+Gothic");
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo img {
+  margin-top: 15%;
+  width: 40%;
+}
+
+.login_btn img {
+  margin-top: 60%;
+  width: 85%;
+}
+
+.routeLoading img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 70%;
+  width: 50%;
+  height: 50%;
+}
