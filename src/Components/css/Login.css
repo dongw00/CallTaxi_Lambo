@@ -1,11 +1,26 @@
 body {
-  background: #3d516b;
+  background: rgb(40, 45, 75);
+}
+
+@font-face {
+  font-family: "Nanum Gothic", sans-serif;
+  src: url("https://fonts.googleapis.com/css?family=Nanum+Gothic");
+}
+
+div {
+  font-family: "Nanum Gothic", sans-serif;
+  color: white;
+  text-align: center;
+  font-size: 22pt;
+  margin-top: 10%;
 }
 
 form {
-  width: 320px;
-  padding: 60px 25px 80px;
-  margin: 50px auto;
+  width: 83%;
+  padding: 60px 30px 80px;
+  margin-top: 7%;
+  margin-left: auto;
+  margin-right: auto;
   background: #f8d348;
   display: flex;
   flex-direction: column;
@@ -15,24 +30,25 @@ svg {
   width: 70%;
   border-radius: 50%;
   background: #fff;
-  margin-bottom: 40px;
   align-self: center;
   transform-style: preserve-3d;
+  margin-bottom: 30%;
 }
 
 input {
-  font-size: 16px;
+  font-size: 23px;
   border: 0;
   border-radius: 5px;
   outline: 0;
-  padding: 10px 15px;
-  margin-top: 15px;
+  padding: 13.5px;
+  margin-top: 5%;
 }
 
 @keyframes lookaway-up {
   from {
     transform: rotate3d(0.2, 0, -0.01, 20deg);
   }
+
   to {
     transform: rotate3d(0.2, -0.05, -0.01, 20deg);
   }
@@ -42,6 +58,7 @@ input {
   0% {
     transform: rotate3d(-0.2, 0, -0.01, 20deg);
   }
+
   100% {
     transform: rotate3d(-0.2, -0.05, 0.01, 20deg);
   }
