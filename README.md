@@ -1,8 +1,11 @@
-# Lambo - CallTexi Project
+# Lambo - CallTaxi Project
 
 ![AWS IMAGE](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmBTxG3eLysFiLmgtno7cAm7sAHMSxuHWbNVy_UmQYxM7uCSox)<br>
-2018-2 학기 산학협력 프로젝트 (AWS) <br>
-프로젝트 계획서 : https://goo.gl/p7vrCu
+2018 2rd semester Industry - University collaboration project (AWS) <br>
+Project proposal (kr) : https://goo.gl/p7vrCu
+<br>
+### Architecture Overview
+![Architecture Image](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fde26bab4-c828-4b36-a664-81f672dac858%2FUntitled.png)
 
 ## stack
 
@@ -10,10 +13,4 @@
 - React (Application)
 - AWS (BackEnd System)
 
-## How to use
-
-    yarn start
-
 ## etc
-
-참고 :
