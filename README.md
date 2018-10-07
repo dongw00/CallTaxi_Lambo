@@ -15,3 +15,5 @@ Project proposal (kr) : https://goo.gl/p7vrCu
 - AWS (BackEnd System)
 
 ## etc
+- [Project milestone](https://github.com/dongw00/CallTaxi_Lambo/projects/1)
+- [Project references](https://github.com/dongw00/CallTaxi_Lambo/wiki)
