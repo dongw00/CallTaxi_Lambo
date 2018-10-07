@@ -1,6 +1,7 @@
 # Lambo - CallTaxi Project
 
-![AWS IMAGE](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmBTxG3eLysFiLmgtno7cAm7sAHMSxuHWbNVy_UmQYxM7uCSox)<br>
+![AWS IMAGE](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmBTxG3eLysFiLmgtno7cAm7sAHMSxuHWbNVy_UmQYxM7uCSox)
+<br><br>
 2018 2rd semester Industry - University collaboration project (AWS) <br>
 Project proposal (kr) : https://goo.gl/p7vrCu
 <br>
