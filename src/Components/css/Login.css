@@ -3,12 +3,12 @@ body {
 }
 
 @font-face {
-  font-family: "Nanum Gothic", sans-serif;
-  src: url("https://fonts.googleapis.com/css?family=Nanum+Gothic");
+  font-family: 'Nanum Gothic', sans-serif;
+  src: url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
 }
 
-div {
-  font-family: "Nanum Gothic", sans-serif;
+#banner {
+  font-family: 'Nanum Gothic', sans-serif;
   color: white;
   text-align: center;
   font-size: 22pt;

@@ -1,14 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Amplify from "aws-amplify";
-import Route from "./routes";
-import * as serviceWorker from "./serviceWorker";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Routes from './Routes';
+// import Home from './Components/Home';
+import * as serviceWorker from './serviceWorker';
 
-/* AWS Amplify */
-import awsmobile from "./aws-exports";
-
-Amplify.configure(awsmobile);
-
-ReactDOM.render(<Route />, document.getElementById("root"));
+ReactDOM.render(<Routes />, document.getElementById('root'));
 // Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.register();
+serviceWorker.unregister();

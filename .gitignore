@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 
@@ -16,11 +14,14 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.vscode
+.amplifyrc
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # AWS File
-*/aws-config.js
-*/aws-export.js
+**/aws-config.js
+**/aws-exports.js
+**/amplify
