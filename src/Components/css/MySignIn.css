@@ -1,23 +1,14 @@
-body {
-  background: rgb(40, 45, 75);
-}
-
-@font-face {
-  font-family: 'Nanum Gothic', sans-serif;
-  src: url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
-}
-
 #banner {
-  font-family: 'Nanum Gothic', sans-serif;
   color: white;
   text-align: center;
+  font-weight: 500;
   font-size: 22pt;
   margin-top: 10%;
 }
 
-form {
+.formContainer {
   width: 83%;
-  padding: 60px 30px 80px;
+  padding: 60px 30px;
   margin-top: 7%;
   margin-left: auto;
   margin-right: auto;
@@ -26,22 +17,32 @@ form {
   flex-direction: column;
 }
 
-svg {
-  width: 70%;
+#ryan {
+  width: 100%;
   border-radius: 50%;
   background: #fff;
   align-self: center;
   transform-style: preserve-3d;
-  margin-bottom: 30%;
+  margin-bottom: 10%;
 }
 
-input {
+#username,
+#password {
+  margin-top: 5%;
   font-size: 23px;
   border: 0;
   border-radius: 5px;
   outline: 0;
-  padding: 13.5px;
-  margin-top: 5%;
+  padding: 13px;
+}
+
+#mySignIn > button {
+  display: block;
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.5em;
+  font-weight: 600;
 }
 
 @keyframes lookaway-up {

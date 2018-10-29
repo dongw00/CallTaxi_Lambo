@@ -1,9 +1,9 @@
 import React, { Fragment, Component } from 'react';
 import { Helmet } from 'react-helmet';
-import Loading from './Loading';
-import loadingLogo from '../Assets/logo/Kakao_Logo.png';
-import loginLogo from '../Assets/logo/kakao_account_login_btn.png';
-import './css/Intro.css';
+import Loading from '../Loading/Loading';
+import loadingLogo from '../../Assets/logo/Kakao_Logo.png';
+import loginLogo from '../../Assets/logo/kakao_account_login_btn.png';
+import style from '../css/Intro.module.css';
 
 class Intro extends Component {
   state = {
@@ -11,33 +11,32 @@ class Intro extends Component {
   };
 
   componentDidMount() {
-    setTimeout(() => this.setState({ loading: false }), 1500);
+    this.setState({ loading: false });
   }
 
   render() {
     const { loading } = this.state;
 
-    if (loading) {
-      return <Loading />;
-    }
+    if (loading) return <Loading />;
+
     return (
       <Fragment>
         <Helmet>
           <title>Intro | Nuber</title>
         </Helmet>
         <main>
-          <div className="text">
+          <div className={style.textContainer}>
             <p>
               안녕하세요.
               <br />
               카카오 T 입니다.
             </p>
           </div>
-          <div className="logo">
+          <div className={style.logo}>
             <img src={loadingLogo} alt="logo" />
           </div>
-          <div className="login_btn">
-            <a href="/Home">
+          <div className={style.logo_btn}>
+            <a href="/MainPage">
               <img src={loginLogo} alt="login_btn" />
             </a>
           </div>

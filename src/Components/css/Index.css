@@ -4,6 +4,10 @@ body {
   margin: 0;
 }
 
+body {
+  background: rgb(40, 45, 75);
+}
+
 #root,
 #root > div,
 .Maps {

@@ -1,0 +1,32 @@
+.textContainer {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
+  margin-bottom: 0;
+}
+
+.textContainer > p {
+  color: white;
+  text-align: center;
+  line-height: 1.8em;
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.logo > img {
+  margin-top: 20%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.logo_btn img {
+  display: block;
+  margin-top: 55%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+}

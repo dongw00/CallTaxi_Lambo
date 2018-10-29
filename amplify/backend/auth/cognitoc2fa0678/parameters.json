@@ -1,0 +1,57 @@
+{
+    "resourceName": "cognitoc2fa0678",
+    "authSelections": "identityPoolAndUserPool",
+    "userPoolName": "cognitoc2fa0678_userpool_bdc6c411",
+    "autoVerifiedAttributes": [
+        "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+        "SMS Text Message"
+    ],
+    "roleName": "cognitoc2fa0678_sns-role",
+    "roleExternalId": "cognitoc2fa0678_role_external_id",
+    "policyName": "cognitoc2fa0678-sns-policy",
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [
+        "Requires Lowercase",
+        "Requires Uppercase",
+        "Requires Numbers",
+        "Requires Symbols"
+    ],
+    "requiredAttributes": [
+        "email"
+    ],
+    "userpoolClientName": "cognitoc2fa0678_app_client",
+    "userpoolClientGenerateSecret": true,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientReadAttributes": [
+        "email"
+    ],
+    "mfaLambdaRole": "cognitoc2fa0678_totp_lambda_role",
+    "mfaLambdaLogPolicy": "cognitoc2fa0678_totp_lambda_log_policy",
+    "mfaPassRolePolicy": "cognitoc2fa0678_totp_pass_role_policy",
+    "mfaLambdaIAMPolicy": "cognitoc2fa0678_totp_lambda_iam_policy",
+    "userpoolClientLambdaRole": "cognitoc2fa0678_userpoolclient_lambda_role",
+    "userpoolClientLogPolicy": "cognitoc2fa0678_userpoolclient_lambda_log_policy",
+    "userpoolClientLambdaPolicy": "cognitoc2fa0678_userpoolclient_lambda_iam_policy",
+    "userpoolClientSetAttributes": false,
+    "identityPoolName": "calltaxi_identitypool_6a7f4931",
+    "allowUnauthenticatedIdentities": false,
+    "thirdPartyAuth": false,
+    "lambdaLogPolicy": "cognitoc2fa0678_lambda_log_policy",
+    "openIdLambdaRoleName": "cognitoc2fa0678_openid_lambda_role",
+    "openIdRolePolicy": "cognitoc2fa0678_openid_pass_role_policy",
+    "openIdLambdaIAMPolicy": "cognitoc2fa0678_openid_lambda_iam_policy",
+    "openIdLogPolicy": "cognitoc2fa0678_openid_lambda_log_policy",
+    "useDefault": "default",
+    "unAuthRoleName": "allaxi-20181009202145-unauthRole",
+    "authRoleName": "allaxi-20181009202145-authRole",
+    "unAuthRoleArn": "arn:aws:iam::731245407693:role/allaxi-20181009202145-unauthRole",
+    "authRoleArn": "arn:aws:iam::731245407693:role/allaxi-20181009202145-authRole"
+}

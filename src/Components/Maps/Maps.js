@@ -5,13 +5,12 @@ import {
   withGoogleMap,
   GoogleMap,
   Marker,
-  Circle,
 } from 'react-google-maps';
 
 const MyMapComponent = compose(
   withProps({
     googleMapURL:
-      'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places',
+      'https://maps.googleapis.com/maps/api/js?key=AIzaSyB_aaoXGPu1gGhHSUyrn9U02FpGg0Cso1I',
     loadingElement: <div style={{ height: '100%' }} />,
     containerElement: <div className="Maps" />,
     mapElement: <div style={{ height: '100%' }} />,
