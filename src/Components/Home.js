@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { ConfirmSignIn, withAuthenticator } from 'aws-amplify-react';
 import Amplify from 'aws-amplify';
-import MySignIn from './Amplify/MySignIn';
-import awsConfigure from '../aws-exports';
+import MySignIn from './MySignIn';
+import awsConfigure from '../Aws/aws-exports';
 import Maps from './Maps';
 import './css/Home.css';
 
@@ -20,5 +20,5 @@ class Home extends Component {
 
 export default withAuthenticator(Home, false, [
   <MySignIn />,
-  <ConfirmSignIn />
+  <ConfirmSignIn />,
 ]);

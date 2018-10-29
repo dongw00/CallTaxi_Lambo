@@ -1,5 +1,5 @@
-import React from "react";
-import loadingLogo from "../logo/Kakao_Logo.png";
+import React from 'react';
+import loadingLogo from '../Assets/logo/Kakao_Logo.png';
 
 const Loading = () => (
   <div className="routeLoading">

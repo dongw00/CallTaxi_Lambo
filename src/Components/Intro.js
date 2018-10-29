@@ -1,13 +1,13 @@
 import React, { Fragment, Component } from 'react';
 import { Helmet } from 'react-helmet';
 import Loading from './Loading';
-import loadingLogo from '../logo/Kakao_Logo.png';
-import loginLogo from '../logo/kakao_account_login_btn.png';
+import loadingLogo from '../Assets/logo/Kakao_Logo.png';
+import loginLogo from '../Assets/logo/kakao_account_login_btn.png';
 import './css/Intro.css';
 
 class Intro extends Component {
   state = {
-    loading: true
+    loading: true,
   };
 
   componentDidMount() {
