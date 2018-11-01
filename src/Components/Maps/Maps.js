@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { compose, withProps } from 'recompose';
 import {
   withScriptjs,
@@ -7,10 +7,13 @@ import {
   Marker,
 } from 'react-google-maps';
 
+const DEFAULT_LAT = 37.600707;
+const DEFAULT_LNG = 126.86456;
+const GOOGLE_MAPS_API = `${process.env.REACT_APP_GOOGLE_API}`;
+
 const MyMapComponent = compose(
   withProps({
-    googleMapURL:
-      'https://maps.googleapis.com/maps/api/js?key=AIzaSyB_aaoXGPu1gGhHSUyrn9U02FpGg0Cso1I',
+    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API}&libraries=drawing,places`,
     loadingElement: <div style={{ height: '100%' }} />,
     containerElement: <div className="Maps" />,
     mapElement: <div style={{ height: '100%' }} />,
@@ -23,21 +26,27 @@ const MyMapComponent = compose(
     defaultCenter={{ lat: 37.600707, lng: 126.86456 }}>
     {props.isMarkerShown && (
       <Marker
-        position={{ lat: 37.600707, lng: 126.86456 }}
+        position={{ lat: props.lat, lng: props.lng }}
         onClick={props.onMakerClick}
       />
     )}
   </GoogleMap>
 ));
 
-class Maps extends PureComponent {
+class Maps extends React.PureComponent {
   state = {
     isMarkerShown: false,
+    lat: DEFAULT_LAT,
+    lng: DEFAULT_LNG,
   };
 
   componentDidMount() {
     this.delayedShowMarker();
   }
+
+  getLocation = (lat, lng) => {
+    this.setState({ lat: lat, lng: lng });
+  };
 
   delayedShowMarker = () => {
     setTimeout(() => {
@@ -51,8 +60,12 @@ class Maps extends PureComponent {
   };
 
   render() {
+    const { lat, lng } = this.state;
+
     return (
       <MyMapComponent
+        lat={lat}
+        lng={lng}
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}
       />
