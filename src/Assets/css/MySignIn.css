@@ -1,15 +1,15 @@
 #banner {
+  margin-top: 3%;
   color: white;
   text-align: center;
   font-weight: 500;
-  font-size: 22pt;
-  margin-top: 10%;
+  font-size: 23pt;
 }
 
 .formContainer {
-  width: 83%;
-  padding: 60px 30px;
-  margin-top: 7%;
+  width: 80%;
+  padding: 5% 5%;
+  margin-top: 5%;
   margin-left: auto;
   margin-right: auto;
   background: #f8d348;
@@ -18,27 +18,27 @@
 }
 
 #ryan {
-  width: 100%;
+  width: 63%;
   border-radius: 50%;
+  margin-top: 0;
   background: #fff;
   align-self: center;
   transform-style: preserve-3d;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
 #username,
 #password {
-  margin-top: 5%;
-  font-size: 23px;
+  margin-bottom: 3%;
+  font-size: 20px;
   border: 0;
-  border-radius: 5px;
-  outline: 0;
-  padding: 13px;
+  border-radius: 3px;
+  padding: 10px;
 }
 
 #mySignIn > button {
   display: block;
-  margin-top: 1%;
+  margin-top: 2%;
   margin-left: auto;
   margin-right: auto;
   font-size: 1.5em;

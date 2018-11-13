@@ -1,9 +1,9 @@
 import React, { Fragment, Component } from 'react';
 import { Helmet } from 'react-helmet';
-import Loading from '../Loading/Loading';
-import loadingLogo from '../../Assets/logo/Kakao_Logo.png';
-import loginLogo from '../../Assets/logo/kakao_account_login_btn.png';
-import style from '../css/Intro.module.css';
+import Loading from '../../components/Loading/Loading';
+import loadingLogo from '../../assets/logo/Kakao_Logo.png';
+import loginLogo from '../../assets/logo/kakao_account_login_btn.png';
+import style from '../../assets/css/Intro.module.css';
 
 class Intro extends Component {
   state = {

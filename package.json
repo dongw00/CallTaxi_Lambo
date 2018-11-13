@@ -9,6 +9,7 @@
     "aws-amplify": "^1.1.7",
     "aws-amplify-react": "^2.1.1",
     "eslint-config-airbnb": "^17.1.0",
+    "node-sass": "^4.10.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-google-maps": "^9.4.5",
@@ -18,7 +19,7 @@
     "recompose": "^0.30.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

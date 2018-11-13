@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { withAuthenticator, ConfirmSignIn } from 'aws-amplify-react';
 import Amplify from 'aws-amplify';
-import MySignIn from '../Components/Login/MySignIn';
-import awsConfigure from '../Aws/aws-exports';
-import Maps from '../Components/Maps/Maps';
+import MySignIn from '../Login/MySignIn';
+import awsConfigure from '../../aws/aws-exports';
+import Maps from '../../components/Maps/Maps';
 
 Amplify.configure(awsConfigure);
 

@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { SignIn } from 'aws-amplify-react';
 import { Helmet } from 'react-helmet';
-import { Button } from '../../Aws/Amplify/Amplify-UI-Components-React';
+import { Button } from '../../aws/Amplify/Amplify-UI-Components-React';
 
-import '../css/MySignIn.css';
+import '../../assets/css/MySignIn.css';
 
 export default class MySignIn extends SignIn {
   state = {
