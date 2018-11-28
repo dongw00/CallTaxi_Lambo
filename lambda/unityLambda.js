@@ -9,7 +9,7 @@ exports.handler = (event, context, callback) => {
     Key: {
       "id": 0
     },
-    UpdateExpression: "set cLat=:cmLat, cLon=:cLon",
+    UpdateExpression: "set cLat=:cLat, cLon=:cLon",
     ExpressionAttributeValues: {
       ":cLat": event.cLat,
       ":cLon": event.cLon
