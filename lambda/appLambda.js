@@ -1,23 +1,27 @@
-var AWS = require('aws-sdk'),
-  documentClient = new AWS.DynamoDB.DocumentClient();
+'use strict';
 
-exports.writeMovie = (event, context, callback) => {
-  var params = {
-    Key: {
-      id: '2',
-      mLat: event.mLat,
-      mLon: event.mLon,
-    },
+const AWS = require('aws-sdk')
+const dynamodb = new AWS.DynamoDB.DocumentClient();
+
+exports.handler = (event, context, callback) => {
+  const params = {
     TableName: process.env.TABLE_NAME,
+    Key: {
+      "id": 0
+    },
+    UpdateExpression: "set mLat=:mLat, mLon=:mLon",
+    ExpressionAttributeValues: {
+      ":mLat": event.mLat,
+      ":mLon": event.mLon
+    },
+    ReturnValues: "UPDATED_NEW"
   };
-  documentClient.update(params, (err, data) => {
+  
+  dynamodb.update(params, (err, data) => {
     if (err) {
-      console.error(
-        'Unable to update item. Error JSON:',
-        JSON.stringify(err, null, 2)
-      );
+      console.error('Unable to update item. Error JSON:', JSON.stringify(err, null, 2));
     } else {
-      console.log('UpdateItem succeeded:', JSON.stringify(data, null, 2));
+      console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
     }
   });
 };
