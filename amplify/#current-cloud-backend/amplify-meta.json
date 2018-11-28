@@ -1,37 +1,14 @@
 {
-	"providers": {
-		"awscloudformation": {
-			"AuthRoleName": "allaxi-20181009202145-authRole",
-			"UnauthRoleArn": "arn:aws:iam::731245407693:role/allaxi-20181009202145-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::731245407693:role/allaxi-20181009202145-authRole",
-			"Region": "ap-northeast-2",
-			"DeploymentBucketName": "allaxi-20181009202145-deployment",
-			"UnauthRoleName": "allaxi-20181009202145-unauthRole",
-			"StackName": "allaxi-20181009202145",
-			"StackId": "arn:aws:cloudformation:ap-northeast-2:731245407693:stack/allaxi-20181009202145/817e0940-cbb5-11e8-9b2b-50a68afc449a"
-		}
-	},
-	"auth": {
-		"cognitoc2fa0678": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/allaxi-20181009202145-deployment/amplify-cfn-templates/auth/cognitoc2fa0678-cloudformation-template.yml",
-				"logicalId": "authcognitoc2fa0678"
-			},
-			"lastPushTimeStamp": "2018-10-09T11:33:06.163Z",
-			"output": {
-				"IdentityPoolId": "ap-northeast-2:374e8889-07b3-4a11-babd-84ee8ed1125e",
-				"IdentityPoolName": "calltaxi_identitypool_6a7f4931",
-				"AppClientSecret": "1otu4p6e680i8opqjhjqfv08md4uj42ktriutkkq0v3kmq0b4ph4",
-				"UserPoolId": "ap-northeast-2_CttwXaHae",
-				"AppClientIDWeb": "65ttv9lht9d389glb3mq9cj8tc",
-				"AppClientID": "4fatv7c6qohforad0ui4ag4v1s",
-				"UserPoolName": "cognitoc2fa0678_userpool_bdc6c411"
-			},
-			"lastPushDirHash": "OhMXsjfA8jhfpw2KG6jKhV8uELA=",
-			"[object Object]": {}
-		}
-	},
-	"analytics": {}
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "allaxi-20181114172658-authRole",
+            "UnauthRoleArn": "arn:aws:iam::731245407693:role/allaxi-20181114172658-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::731245407693:role/allaxi-20181114172658-authRole",
+            "Region": "ap-northeast-1",
+            "DeploymentBucketName": "allaxi-20181114172658-deployment",
+            "UnauthRoleName": "allaxi-20181114172658-unauthRole",
+            "StackName": "allaxi-20181114172658",
+            "StackId": "arn:aws:cloudformation:ap-northeast-1:731245407693:stack/allaxi-20181114172658/0dc16580-e7e7-11e8-acbd-0651c60cbb48"
+        }
+    }
 }

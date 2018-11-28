@@ -10,8 +10,8 @@
         "config": {
             "SourceDir": "src",
             "DistributionDir": "build",
-            "BuildCommand": "npm run-script build",
-            "StartCommand": "npm run-script start"
+            "BuildCommand": "yarn run-script build",
+            "StartCommand": "HTTPS=true react-scripts start"
         }
     },
     "providers": {

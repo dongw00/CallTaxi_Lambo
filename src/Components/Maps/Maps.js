@@ -7,6 +7,8 @@ import {
   Marker,
 } from 'react-google-maps';
 
+import person_icon from '../../assets/icon/person_icon2.png';
+
 const DEFAULT_LAT = 37.600707;
 const DEFAULT_LNG = 126.86456;
 const GOOGLE_MAPS_API = `${process.env.REACT_APP_GOOGLE_API}`;
@@ -26,8 +28,8 @@ const MyMapComponent = compose(
     defaultCenter={{ lat: 37.600707, lng: 126.86456 }}>
     {props.isMarkerShown && (
       <Marker
+        icon={person_icon}
         position={{ lat: props.lat, lng: props.lng }}
-        onClick={props.onMakerClick}
       />
     )}
   </GoogleMap>
