@@ -11,8 +11,8 @@ exports.handler = (event, context, callback) => {
     },
     UpdateExpression: "set cLat=:cmLat, cLon=:cLon",
     ExpressionAttributeValues: {
-      ":cLat": event.mLat,
-      ":cLon": event.mLon
+      ":cLat": event.cLat,
+      ":cLon": event.cLon
     },
     ReturnValues: "UPDATED_NEW"
   };
