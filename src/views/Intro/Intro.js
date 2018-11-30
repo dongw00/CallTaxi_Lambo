@@ -29,7 +29,7 @@ class Intro extends Component {
             <p>
               안녕하세요.
               <br />
-              카카오 T 입니다.
+              람보 T 입니다.
             </p>
           </div>
           <div className={style.logo}>
