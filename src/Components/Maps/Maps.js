@@ -9,15 +9,21 @@ import {
   DirectionsRenderer,
 } from 'react-google-maps';
 
-import { putAction } from '../../actions/putAction';
+import car_icon from '../../assets/icon/rsz_car.png';
 
-import person_icon from '../../assets/icon/rsz_car.png';
-
+/* 현재 위치 */
 const DEFAULT_LAT = 35.160148;
 const DEFAULT_LNG = 126.851424;
-const GOOGLE_MAPS_API = `${process.env.REACT_APP_GOOGLE_API}`;
+let SELECT_VALUE = 0;
+let CAR_LAT = 35.15443;
+let CAR_LON = 126.851584;
+let M_LAT = 35.158596;
+let M_LON = 126.851628;
 
-const _ = require('lodash');
+const GOOGLE_MAPS_API = `${process.env.REACT_APP_GOOGLE_API}`;
+const LAMBDA_GET_URL =
+  'https://cyj1ma1ju7.execute-api.us-east-2.amazonaws.com/test/getcarlocation';
+
 const {
   SearchBox,
 } = require('react-google-maps/lib/components/places/SearchBox');
@@ -27,89 +33,130 @@ const {
 
 const MyMapComponent = compose(
   withProps({
-    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API}&libraries=drawing,places`,
+    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API}&libraries=geometry,drawing,places`,
     loadingElement: <div style={{ height: '100%' }} />,
     containerElement: <div className="Maps" />,
     mapElement: <div style={{ height: '100%' }} />,
   }),
   lifecycle({
     componentWillMount() {
-      const refs = {};
+      /* init */
+      fetch(
+        'https://cyj1ma1ju7.execute-api.us-east-2.amazonaws.com/test/getcarlocation',
+        {
+          method: 'GET',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+        .then(res => res.json())
+        .then(data => {
+          SELECT_VALUE = data.Item.select;
+          console.log(`selc=${SELECT_VALUE}`);
+          switch (SELECT_VALUE) {
+            case 0:
+              M_LAT = 35.158926;
+              M_LON = 126.850904;
+              break;
+            case 1:
+              M_LAT = 35.158755;
+              M_LON = 126.850573;
+              break;
+            case 2:
+              M_LAT = 35.155086;
+              M_LON = 126.848545;
+              break;
+            case 3:
+              M_LAT = 35.158689;
+              M_LON = 126.855465;
+              break;
+            case 4:
+              M_LAT = 35.155078;
+              M_LON = 126.852287;
+              break;
+            default:
+              M_LAT = 35.158926;
+              M_LON = 126.850904;
+              break;
+          }
+        });
+      const refs = [];
 
       this.setState({
-        bounds: null,
-        center: {
-          lat: DEFAULT_LAT,
-          lng: DEFAULT_LNG,
-        },
+        position: null,
         markers: [],
-        onMapMounted: ref => {
-          refs.map = ref;
-        },
-        onBoundsChanged: () => {
-          this.setState({
-            bounds: refs.map.getBounds(),
-            center: refs.map.getCenter(),
-          });
-        },
         onSearchBoxMounted: ref => {
           refs.searchBox = ref;
         },
+
         onPlacesChanged: () => {
           const places = refs.searchBox.getPlaces();
-          const bounds = new google.maps.LatLngBounds();
-
-          places.forEach(place => {
-            if (place.geometry.viewport) {
-              bounds.union(place.geometry.viewport);
-            } else {
-              bounds.extend(place.geometry.location);
-            }
-          });
           const nextMarkers = places.map(place => ({
             position: place.geometry.location,
           }));
-          const nextCenter = _.get(
-            nextMarkers,
-            '0.position',
-            this.state.center
-          );
           this.setState({
-            center: nextCenter,
             markers: nextMarkers,
           });
         },
       });
+
+      /* Fetch car location */
+      const callTaxi = setInterval(() => {
+        fetch(
+          'https://cyj1ma1ju7.execute-api.us-east-2.amazonaws.com/test/getcarlocation',
+          {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+          .then(res => res.json())
+          .then(data => {
+            CAR_LAT = data.Item.cLat;
+            CAR_LON = data.Item.cLon;
+            SELECT_VALUE = data.Item.select;
+            console.log(`Car[${CAR_LAT}, ${CAR_LON}] M[${M_LAT}, ${M_LON}]`);
+            console.log(`slec=${SELECT_VALUE}`);
+            if (SELECT_VALUE === 5) stopTaxi();
+          })
+          .then(() =>
+            this.setState({
+              onMarkerMounted: ref => {
+                refs.marker = ref;
+              },
+              onPositionChanged: () => {
+                console.log('position changed');
+                const obj = [
+                  {
+                    position: {
+                      lat: CAR_LAT,
+                      lng: CAR_LON,
+                    },
+                  },
+                ];
+                this.setState({
+                  markers: obj,
+                });
+              },
+            })
+          );
+      }, 5000);
+
+      /* Stop fetching */
+      const stopTaxi = () => {
+        console.log('stop calling');
+        clearInterval(callTaxi);
+      };
     },
   }),
   withScriptjs,
   withGoogleMap,
   lifecycle({
-    componentDidMount() {
-      putAction().then(data => {
-        console.log(data);
-      });
-      const DirectionsService = new google.maps.DirectionsService();
-
-      DirectionsService.route(
-        {
-          origin: new google.maps.LatLng(37.598243, 126.865281),
-          destination: new google.maps.LatLng(37.600436, 126.865474),
-          travelMode: google.maps.TravelMode.DRIVING,
-        },
-        (result, status) => {
-          if (status === google.maps.DirectionsStatus.OK) {
-            this.setState({
-              directions: result,
-            });
-          } else {
-            console.error(`error fetching directions ${result}`);
-          }
-        }
-      );
-      const gmo = document.querySelectorAll('div.gmnoprint');
-      console.log(gmo);
-    },
+    componentDidMount() {},
   })
 )(props => (
   <GoogleMap
@@ -118,7 +165,6 @@ const MyMapComponent = compose(
     {props.directions && <DirectionsRenderer directions={props.directions} />}
     <SearchBox
       ref={props.onSearchBoxMounted}
-      bounds={props.bounds}
       controlPosition={google.maps.ControlPosition.TOP_LEFT}
       onPlacesChanged={props.onPlacesChanged}>
       <input
@@ -143,21 +189,34 @@ const MyMapComponent = compose(
       <Marker key={index} position={marker.position} />
     ))}
     <MarkerWithLabel
-      position={{ lat: 35.158894, lng: 126.851331 }}
+      position={{ lat: M_LAT, lng: M_LON }}
       labelAnchor={{ x: 0, y: 0 }}
       labelStyle={{
         backgroundColor: 'yellow',
         fontSize: '10px',
         padding: '5px',
       }}>
-      <div>Hello There!</div>
+      <div>
+        <button type="submit" onClick={props.callTaxi}>
+          호출
+        </button>
+      </div>
     </MarkerWithLabel>
-    <Marker icon={person_icon} position={{ lat: 35.157008, lng: 126.850137 }} />
+    <Marker
+      ref={props.onMarkerMounted}
+      icon={car_icon}
+      position={{ lat: CAR_LAT, lng: CAR_LON }}
+      defaultAnimation={google.maps.Animation.DROP}
+      onPositionChanged={props.onPositionChanged}
+    />
   </GoogleMap>
 ));
+
 class Maps extends React.PureComponent {
   render() {
-    return <MyMapComponent onMarkerClick={this.handleMarkerClick} />;
+    return (
+      <MyMapComponent clat={CAR_LAT} clng={CAR_LON} mlat={M_LAT} mlon={M_LON} />
+    );
   }
 }
 
