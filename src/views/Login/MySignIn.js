@@ -30,6 +30,7 @@ export default class MySignIn extends SignIn {
     const face = document.querySelectorAll('.ears, .eyes, .muzzle');
     const fauxInput = document.createElement('div');
     const span = document.createElement('span');
+    const btn = document.getElementById('btn');
     let timer = null;
 
     function copyStyles(el) {
@@ -121,6 +122,59 @@ export default class MySignIn extends SignIn {
         rotate3d(0, 0, 0, 0);
       }, 1);
     }
+
+    function clickBtn() {
+      const selc = document.getElementById('select').value;
+      const myObj = myLocation(selc);
+      fetch(
+        'https://cyj1ma1ju7.execute-api.us-east-2.amazonaws.com/test/mylocation',
+        {
+          method: 'PUT',
+          body: JSON.stringify(myObj),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      ).catch(err => err);
+    }
+    /* PUT할 Obj 반환함수*/
+    function myLocation(selc) {
+      let mLat = 0;
+      let mLon = 0;
+      switch (selc) {
+        case 0:
+          mLat = 35.158926;
+          mLon = 126.850904;
+          break;
+        case 1:
+          mLat = 35.158755;
+          mLon = 126.850573;
+          break;
+        case 2:
+          mLat = 35.155086;
+          mLon = 126.848545;
+          break;
+        case 3:
+          mLat = 35.158689;
+          mLon = 126.855465;
+          break;
+        case 4:
+          mLat = 35.155078;
+          mLon = 126.852287;
+          break;
+        default:
+          mLat = 35.158926;
+          mLon = 126.850904;
+          break;
+      }
+      const data = {
+        selc: selc,
+        mLat: mLat,
+        mLon: mLon,
+      };
+
+      return data;
+    }
     fauxInput.appendChild(span);
 
     email.addEventListener('focus', focus, false);
@@ -130,6 +184,8 @@ export default class MySignIn extends SignIn {
 
     password.addEventListener('focus', lookAway, false);
     password.addEventListener('blur', reset, false);
+
+    btn.addEventListener('click', clickBtn);
   }
 
   render() {
@@ -238,8 +294,19 @@ export default class MySignIn extends SignIn {
               name="password"
               onChange={this.handleInputChange}
             />
+            <select id="select">
+              <option value="" selected>
+                Player
+              </option>
+              <option value="1">1번</option>
+              <option value="2">2번</option>
+              <option value="3">3번</option>
+              <option value="4">4번</option>
+            </select>
           </form>
-          <Button onClick={this.signIn}>로그인</Button>
+          <Button id="btn" onClick={this.signIn}>
+            로그인
+          </Button>
         </div>
       </Fragment>
     );
