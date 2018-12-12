@@ -12,3 +12,33 @@
   font-weight: bold;
   font-size: 1.5em;
 }
+
+.popup {
+  top: 10%;
+  bottom: 10%;
+  left: 10%;
+  right: 10%;
+  position: absolute;
+  z-index: 2;
+  align-content: center;
+  background: #fff;
+  border-radius: 3%;
+  text-align: center;
+}
+
+.h1 {
+  font-size: 1.7em;
+  font-weight: bold;
+  margin-top: 15%;
+  margin-bottom: 30%;
+}
+
+.img {
+  width: 90%;
+}
+
+.number {
+  margin-top: 35%;
+  font-size: 3em;
+  font-weight: bold;
+}
