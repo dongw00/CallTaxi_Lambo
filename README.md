@@ -8,7 +8,6 @@
 ### Project
 - [Project proposal (kr)](https://goo.gl/p7vrCu)
 - [Project milestone](https://github.com/dongw00/CallTaxi_Lambo/projects/1)
-- [Project references](https://github.com/dongw00/CallTaxi_Lambo/wiki)
 <br>
 
 ### Architecture Overview
